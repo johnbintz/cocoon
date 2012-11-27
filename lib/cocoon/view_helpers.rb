@@ -100,6 +100,14 @@ module Cocoon
       partial ? partial : association.to_s.singularize + "_fields"
     end
 
+    def cocoon_wrapper(form_builder, &block)
+      content_tag(:div, :class => 'nested-fields') do
+        content_tag(:fieldset) do
+          capture(&block) << link_to_remove_association(t('.remove'), form_builder)
+        end
+      end
+    end
+
     private
 
     def create_object_on_non_association(f, association)
