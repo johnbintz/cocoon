@@ -52,7 +52,7 @@
         console.log($(element).find($(element).data('fieldSearch')))
 
         $(element).find($(element).data('fieldSearch')).each(function(index, element) {
-          $(element).val(index);
+          $(element).val(index + 1);
         });
       },
       setup: function() {
