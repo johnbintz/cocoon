@@ -4,9 +4,15 @@ class CocoonInput
   include ::Formtastic::Inputs::Base
 
   def to_html
-    output = label_html << wrapped_semantic_fields << links
+    wrap_output(output)
+  end
 
+  def wrap_output(output)
     template.content_tag(:li, output.html_safe, wrapper_html_options)
+  end
+
+  def output
+    label_html << wrapped_semantic_fields << links
   end
 
   def wrapper_html_options
@@ -32,8 +38,12 @@ class CocoonInput
 
   def links
     template.content_tag(:div, :class => 'links') do
-      template.link_to_add_association template.t(".add_#{singular_method}"), builder, method, input_html_options
+      template.link_to_add_association template.t(".add_#{singular_method}"), builder, method, add_association_input_html_options
     end
+  end
+
+  def add_association_input_html_options
+    input_html_options
   end
 
   def input_html_options
