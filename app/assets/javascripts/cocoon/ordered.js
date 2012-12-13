@@ -47,16 +47,12 @@
         }
       },
       _updateFields: function(element) {
-        console.log(element)
-        console.log($(element).data('fieldSearch'))
-        console.log($(element).find($(element).data('fieldSearch')))
-
         $(element).find($(element).data('fieldSearch')).each(function(index, element) {
           $(element).val(index);
         });
       },
       setup: function() {
-        $('li[data-ordered_by]').each(function(index, element) {
+        $('[data-ordered_by]').each(function(index, element) {
           var field = $(element).data('ordered_by');
           var fieldSelector = "[name*='[" + field + "]']"
           var fieldGroupSelector = "> .forms > .nested-fields"
@@ -84,5 +80,6 @@
   };
 
   $(function() { $.cocoon.ordered.setup(); });
+  $(document).on('page:change', function() { $.cocoon.ordered.setup(); });
 })(jQuery);
 
