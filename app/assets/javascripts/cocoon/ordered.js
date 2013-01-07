@@ -1,4 +1,4 @@
-//= require jquery-ui
+//= require jquery.ui.all
 //
 (function($) {
   $.cocoon = {

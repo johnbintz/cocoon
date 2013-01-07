@@ -1,5 +1,8 @@
 source "http://rubygems.org"
 
+grop :assets do
+  gem 'jquery-ui-rails'
+end
 
 group :development, :test do
   gem "rails", ">=3.0.0"
