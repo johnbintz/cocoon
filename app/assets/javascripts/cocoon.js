@@ -11,7 +11,7 @@
     return $(this).parent().siblings(selector);
   }
 
-  $('.add_fields').live('click', function(e) {
+  $(document).on('click', '.add_fields', function(e) {
     e.preventDefault();
     var $this                 = $(this),
         assoc                 = $this.data('association'),
@@ -66,7 +66,6 @@
     e.preventDefault();
 
     trigger_node.trigger('cocoon:before-remove', [node_to_delete]);
-
 
     var timeout = trigger_node.data('remove-timeout') || 0;
 

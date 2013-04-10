@@ -1,8 +1,7 @@
-//= require jquery.ui.all
-//
 (function($) {
   $.cocoon = {
     ordered: {
+      isSetUp: false,
       options: {
         items: '> .nested-fields',
         stop: function(e, ui) {
@@ -74,7 +73,10 @@
           });
         });
 
-        $(document).on('cocoon:after-insert', function() { $.cocoon.ordered.setup(); });
+        if (!$.cocoon.ordered.isSetUp) {
+          $(document).on('cocoon:after-insert', function() { $.cocoon.ordered.setup(); });
+          $.cocoon.ordered.isSetUp = true;
+        }
       }
     },
   };
