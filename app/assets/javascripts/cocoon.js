@@ -58,7 +58,7 @@
   });
 
 
-  $('.remove_fields.dynamic, .remove_fields.existing').live('click', function(e) {
+  $(document).on('click', '.remove_fields.dynamic, .remove_fields.existing', function(e) {
     var $this = $(this);
     var node_to_delete = $this.closest(".nested-fields");
     var trigger_node = node_to_delete.parent();
